@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name=”description” content=”Join the quest as you explore dungeons—finding treasure and defeating monsters!
+    	This unique matching game helps to develop memory association by pairing both numbers and making relationships between objects.” />
+    <meta name=”keywords” content=”Memory, Quest, Adventure, Matching, Kids, Game, Memory, Association, Children, Family, Fun” />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,500,300' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Cinzel:400,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="styleBase.css" type="text/css" />
+    <link rel='stylesheet' media='screen and (max-width: 640px)' href='styleMobile.css' />
+    <link rel='stylesheet' media='screen and (min-width: 640px)' href='styleNormal.css' />
+    <link href="contact.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="scripts/validation.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Memory Quest</title>
+</head>
+<script>
+	//google analytics
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52703106-1', 'auto');
+  ga('send', 'pageview');
+	
+	var clicked = false;  //used to toggle between click or scroll functionality 
+	$(document).ready(function(){
+		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;						   
+	//manages the smooth scrolling based on navigation clicking						   
+	$('a[href^="#"]').on('click',function (e) {
+	    clicked = true;
+		e.preventDefault();
+		$(this).removeClass('nav').addClass('current');
+		$(this).siblings().removeClass('current').addClass('nav');
+	    var target = this.hash,
+	    $target = $(target);
+			
+	    $('html, body').stop().animate({
+			//'scrollTop': $target.scrollTop() - 50
+	        'scrollTop': $target.offset().top - 50
+	    }, 500, 'swing', function () {
+	       clicked = false;
+	    });
+	});
+	
+	//manages the navigation changed based on user scrolling
+	$(window).scroll(
+    function() {
+		<!--if(!clicked && !isMobile){-->
+		if(!clicked){
+		   var top = 0;
+		   top = $(window).scrollTop();
+	
+		   if(top < 700){
+			$("a[href='#game']").removeClass('nav').addClass('current');
+			$("a[href='#game']").siblings().removeClass('current').addClass('nav');
+		   }
+		   else if(top < 1327){
+			$("a[href='#heros']").removeClass('nav').addClass('current');
+			$("a[href='#heros']").siblings().removeClass('current').addClass('nav');
+		   }
+		   else if(top < 1927){
+			$("a[href='#monsters']").removeClass('nav').addClass('current');
+			$("a[href='#monsters']").siblings().removeClass('current').addClass('nav');
+		   }
+		   else if(top < 2577){
+			$("a[href='#buy']").removeClass('nav').addClass('current');
+			$("a[href='#buy']").siblings().removeClass('current').addClass('nav');
+		   }
+		   else {
+			$("a[href='#contact']").removeClass('nav').addClass('current');
+			$("a[href='#contact']").siblings().removeClass('current').addClass('nav');
+		   }
+		}
+	});
+	
+	//handles the mouse hover on all monster elements
+	if(!isMobile){
+		$('.monster')
+		.hover(function (e) {
+			var that = $(this);
+			// get the text from property attributes
+			var name = that.attr('name');
+			var desc = that.attr('desc');
+			that.css('font-size: 2em;');
+			// set the new text
+			$('#monsterName').text(name);
+			$('#monsterDesc').text(desc);
+			$('#monsterTip').hide();
+			
+		}, function (e) {
+			// set the text back to original
+			$('#monsterName').text('');
+			$('#monsterDesc').text('');
+			$('#monsterTip').show();
+		});
+	}
+	//mobile nav show and hide
+	$('#navMobile').on('click',function (e) {
+		if($('#navList').css('display') == 'none'){
+			$('#navList').show();
+		}
+		else{
+			$('#navList').hide();	
+		}
+	});	
+});
+
+</script>
+
+<body>
+	<div id="header">
+    	<div id="navNormal">
+            <a class="nav" href="#game">GAME</a>
+            <a class="nav" href="#heros">HEROS</a>
+            <a class="nav" href="#monsters">MONSTERS</a>
+            <a class="nav" href="#buy">BUY</a>
+            <a class="nav" href="#contact">CONTACT</a>
+        </div>
+         <div id="navMobile">
+         	<i id="mobileMenuIcon" class="fa fa-bars"></i>
+            <div id="mobileTitle">MENU</div>
+         	<div id="navList">
+                <a class="nav" href="#game">GAME</a>
+                <a class="nav" href="#heros">HEROS</a>
+                <a class="nav" href="#monsters">MONSTERS</a>
+                <a class="nav" href="#buy">BUY</a>
+                <a class="nav" href="#contact">CONTACT</a>
+            </div>
+    	</div>
+    </div>
+    <div id="spacer"></div>
+    <div id="logo">
+    	<img id="logoImg" src="images/Logo.png"/>
+    </div>
+    <div class="section" id="game">
+        <div class="container">
+        	<div class="title">
+            	<h2 class="sectionTitle">GAME</h2>
+                <i class="fa  fa-chevron-right" style="vertical-align:middle"></i>
+                <p class="sectionParagraph">Learn about the game.</p>
+            </div>
+            <div id="gameInfo">
+                <div class="content">
+                	<h3>THE ADVENTURE BEGINS HERE</h3>
+                	<p>Join the quest as you explore dungeons—finding treasure and defeating monsters! Each step of the adventure 
+                    allows you to prove your memory skills as you uncover hidden gems, treasure chests and secret objects. But watch 
+                    out! A bat, wolf, or dragon could be around the corner.</p>
+					<p>This unique matching game helps to develop memory association by pairing both numbers and making relationships 
+                    between objects. For example, a sword matches a ferocious cyclops and a key opens a treasure chest. The dungeon 
+                    theme creates an immersive adventure in which a player levels up his or her character, manages health and items, 
+                    finds treasure and encounters monsters. The simplicity allows the younger audience to jump right in while added 
+                    layers of complexity retain an older audience.</p>
+                    <h3>FEATURES</h3>
+                    <ul>
+                        <li>Play as a boy or girl!
+                        <li>Eight unique monsters
+                        <li>Infinite dungeon randomization
+                        <li>Level up and unlock mining, fishing, and blacksmithing abilities
+                        <li>Collect gems to acquire helpful items
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="heros">
+    	<div class="container">
+        	<div class="title">
+            	<h2 class="sectionTitle">HEROS</h2>
+                <i class="fa  fa-chevron-right" style="vertical-align:middle"></i>
+                <p class="sectionParagraph">Become one of these heroic champions.</p>
+            </div>
+            <div class="titleHero">
+            	<div class="titleFormat" id="warrior">
+                	<h2>THE</h2>
+                    <h1>WARRIOR</h1>
+                    <img class="heroPortrait" src="images/Warrior.png" height="271px" width="180"/>
+                	<p>Strong and fierce, the warrior wields his sword with great might rivaled by none. Even the most 
+                    ferocious monsters shudder at the flash of his blade. He is a great choice for adventurers that are courageous and daring.</p>
+                </div>
+                
+                <div class="titleFormat" id="archer">
+                	<h2>THE</h2>
+                    <h1>ARCHER</h1>
+                    <img class="heroPortrait" src="images/Archer.png" height="271px" width="180"/>
+                    <p>The archer has a keen eye and never misses a shot with her bow.  Quick and agile, she can take down a mob of 
+                    meanies without even breaking a sweat. An excellent choice for the cunning and stealthy adventurers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="monsters">
+    	<div class="container">
+       		<div class="title">
+            	<h2 class="sectionTitle">MONSTERS</h2>
+                <i class="fa  fa-chevron-right" style="vertical-align:middle"></i>
+                <p class="sectionParagraph">These baddies are found all over the dungeons.</p>
+            </div>
+            <div id="monsterWrapper">
+                <div class="monsterList">
+                    <div class="monster" name="WOLF" desc="The wolf seems furry and cute, but don't cuddle up with this pup." 
+                        style="background-image:url('images/Wolf.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">WOLF</div>
+                        <div class="monsterDescMobile">Furry and cute, but don't cuddle up with this pup.</div>
+                        <br />
+                    </div>
+                    <div class="monster" name="CYCLOPS" desc="He may have only have one eye but that is all he needs."
+                        style="background-image:url('images/Cyclops.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">CYCLOPS</div>
+                        <div class="monsterDescMobile">He may have only have one eye but that is all he needs.</div>
+                    </div>
+                    <div class="monster" name="YETI" desc="From frozen tundra comes the Yeti and the Yeti is hungry!"
+                        style="background-image:url('images/Yeti.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">YETI</div>
+                        <div class="monsterDescMobile">From frozen tundra comes the Yeti and the Yeti is hungry!</div>
+                        <br />
+                    </div>
+                    <div class="monster" name="DRAGON" desc="Not much is know about the Dragon, only that it is largest and most dangerous."
+                        style="background-image:url('images/Dragon.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">DRAGON</div>
+                        <div class="monsterDescMobile">Not much is know, only that it is largest and most dangerous.</div>
+                        <br />
+                    </div>
+                </div>
+                <div id="monsterInfo">
+                    <div id="monsterTip">Hover over a monster to learn more.</div>
+                    <div id="monsterName"></div>
+                    <div id="monsterDesc"></div>
+                </div>
+                <div class="monsterList">
+                    <div class="monster" name="BAT" desc="Small in stature but not in fight or flight."
+                        style="background-image:url('images/Bat.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">BAT</div>
+                        <div class="monsterDescMobile">Small in stature but not in fight or flight.</div>
+                        <br />
+                    </div>
+                    <div class="monster" name="SLIME" desc="Green and mean, watch yourself around this fiend or you might get slimed."
+                        style="background-image:url('images/Slime.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">SLIME</div>
+                        <div class="monsterDescMobile">Green and mean, watch yourself around this fiend or you might get slimed.</div>
+                        <br />
+                    </div>
+                    <div class="monster" name="ZOMBIE" desc="'Brains...BRAINS...'"
+                        style="background-image:url('images/Ghoul.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">ZOMBIE</div>
+                        <div class="monsterDescMobile">'Brains...BRAINS...'</div>
+                        <br />
+                    </div>
+                    <div class="monster" name="BASILISK" desc="The Basilisk is crafty and has a gaze that can be deadly. Use extreme caution."
+                        Style="background-image:url('images/Basilisk.png');"></div>
+                    <div class="monsterInfoMobile">
+                        <div class="monsterNameMobile">BASILISK</div>
+                        <div class="monsterDescMobile">Crafty and has a gaze that can be deadly. Use extreme caution.</div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="buy">
+        <div class="container">
+            <div class="title">
+            	<h2 class="sectionTitle">BUY</h2>
+                <i class="fa  fa-chevron-right" style="vertical-align:middle"></i>
+                <p class="sectionParagraph">Grab your device and play.</p>
+            </div>
+            <div id="buyWrapper">
+                <div class="store">
+                	<a class="deviceImages" href="https://itunes.apple.com/us/app/memory-quest-dungeon-adventure/id895504995?mt=8">
+                    	<img alt="Apple device screenshots" src="images/appleDevices.png" height="469" width="400"/>
+                    </a>
+                    <a id="appleStore" href="https://itunes.apple.com/us/app/memory-quest-dungeon-adventure/id895504995?mt=8">
+                        <img alt="Download on the App Store" src="images/appStore.png" height="74" width="250"/>
+                    </a>
+                </div>
+                <div class="store">
+                    <a class="deviceImages" href="https://play.google.com/store/apps/details?id=com.Levis.MemoryQuest">
+                    	<img alt="Apple device screenshots" src="images/androidDevices.png" height="469" width="400"/>
+                    </a>
+                    <a id="playStore" href="https://play.google.com/store/apps/details?id=com.Levis.MemoryQuest">
+                        <img alt="Download on the App Store" src="images/playStore.png" height="74" width="250"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="contact"">
+        <div class="container">
+        	<div class="title">
+            	<h2 class="sectionTitle">CONTACT</h2>
+                <i class="fa  fa-chevron-right" style="vertical-align:middle"></i>
+                <p class="sectionParagraph">Looking for something else, just ask.</p>
+            </div>
+            <div id="formWrapper">
+            	<form class="form" name="contactForm" id="contactForm">
+                	<div style="font-size:1.5em;">We will get back to you soon.</div>
+                    <input type="text" name="nameBox" class="inputBox" placeholder="name"/>  
+                    <div class="requiredOff" id="name">name is a required field</div>
+                    <input type="text" name="emailBox" class="inputBox" placeholder="email"/>
+                    <div class="requiredOff" id="email">email is a required field</div>
+                    <textarea name="messageBox" class="textArea" placeholder="message"></textarea>
+                    <div class="requiredOff" id="message">message is a required field</div>
+                    <div class="emailButton" id="emailButton" onClick="validateForm()">
+                    	<div class="emailButtonText" id="emailButtonText">send</div>
+                	</div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

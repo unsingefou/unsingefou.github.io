@@ -1,0 +1,204 @@
+@media screen and (max-width: 640px){
+	#game{
+		//background-color:#666;
+		background:linear-gradient(#665139, #888887);
+		height:auto;
+	}
+	#heros{
+		background:linear-gradient(#136695, #1b84bf);
+		//background-color:#09C;
+		height:auto;
+	}
+	#monsters{
+		background:linear-gradient(#d65423, #ffa02e);
+		background-color:#F60;
+		height:auto;
+	}
+	#buy{
+		background:linear-gradient(#7685a8, #adafb2);
+		background-color:#99F;
+		height:auto;
+	}
+	#contact{
+		background:linear-gradient(#098e66, #5dc2a7);
+		background-color:#3C6;
+		height:auto;
+	}
+
+	#navNormal {
+		display:none;
+	}
+	#navMobile{
+		display:block;
+	}
+	.container{
+		width: 100%;
+		margin-left: auto ;
+		margin-right: auto ;	
+	}
+	.deviceImages{
+		display:none;	
+	}
+	.title{
+		background:rgba(0,0,0,0.75);
+		text-align:left;
+		//margin-left:30px;
+		padding-left:30px;
+	}
+	.sectionTitle{
+		margin-top:10px;
+	}
+	.sectionParagraph{
+		display:block;
+		margin-top:-20px;
+		font-size:.75em;
+	}
+	#gameInfo{
+		margin-left:30px;
+	}
+	.titleFormat{
+		display:block;
+	}
+	#warrior{
+		background:linear-gradient(#136695, #1b84bf);
+		text-align:left;
+	}
+	
+	#archer{
+		background:linear-gradient(#369159, #47b06c);
+		text-align:left;
+	}
+	.heroPortrait{
+		display:block;
+    	margin:auto;
+	}
+	#monsterWrapper{
+		margin-bottom:25px;	
+	}
+	.monsterList{
+		//margin-top:-10px;
+		width:100%;
+		//text-align:center;
+	}
+	.monster{
+		width:35%;
+		padding-bottom: 35%;
+		background-size:contain;
+		display:inline-block;
+	}
+	.monsterInfoMobile{
+		width:60%;
+		vertical-align:50%;
+		display:inline-block;	
+	}
+	#monsterInfo{
+		display:none;	
+	}
+	#buyWrapper{
+		text-align:center;
+		margin-top:40px;
+	}
+	.store{
+		display:block;
+		margin-bottom:40px;
+	}
+}
+/*@media screen and (min-width:640px){
+	#game{
+		background-image:url('images/SectionGame.png'); 
+		height:700px;	
+	}
+	#heros{
+		background-image:url('images/SectionHeros.png');
+		height:627px
+	}
+	#monsters{
+		background-image:url('images/SectionMonsters.png');
+		height:600px;	
+	}
+	#buy{
+		background-image:url('images/SectionBuy.png');
+		height:650px;	
+	}
+	#contact{
+		background-image:url('images/SectionContact.png');
+		height:900px;
+	}
+	html{
+		min-width:900px;
+	}
+	
+	#navMobile{
+		display: none;	
+	}
+	#logo{
+		display:none;	
+	}
+	.store{
+		display:inline-block;
+		width:45%;
+		margin:auto;
+	}
+	.container{
+		width: 900px;
+		margin-left: auto ;
+		margin-right: auto ;	
+	}
+	.title{
+		text-align:center;
+	}
+	.titleHero{
+		padding-top: 70px;
+	}
+	.sectionParagraph{
+		display:inline-block;
+		padding-left:10px;
+	}
+	#gameInfo{
+		margin-left:375px;
+	}
+	.titleFormat{
+		width:300px;
+		display:inline-block;
+	}
+	#warrior{
+		text-align:right;
+	}
+	#archer{
+		text-align:left;
+	}
+	.heroPortrait{
+		display:none;	
+	}
+	.monsterList{
+		margin-top:-10px;
+		width:100%;
+		height:170px;
+		text-align:center;
+	}
+	.monster{
+		width:170px;
+		height:170px;
+		background-size:150px 150px;
+		display:inline-block;
+	}
+	.monster:hover{
+		background-size: 170px 170px;
+	}
+	.monsterInfoMobile{
+		display:none;	
+	}
+	#monsterInfo{
+		display:inline-block;	
+	}
+	#buyWrapper{
+		text-align:center;
+		margin-top:-20px;	
+	}
+	#appleStore{
+		//margin-left:-30px;
+	}
+	#playStore{
+		margin-left:60px;
+	}
+}*/
