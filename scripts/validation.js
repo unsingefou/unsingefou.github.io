@@ -10,7 +10,7 @@ function validateForm(){
 	else
 		toggleMark("name", false);
 
-	var emailField = document.forms["contactForm"]["emailBox"];
+	var emailField = document.forms["contactForm"]["_replyto"];
 	var email = emailField.value;
 	if (email.indexOf("@") < 1){
 		toggleMark("email", true);
@@ -65,7 +65,9 @@ function changeDown(){
 		});
 }
 function sendEmail(){
-	$('#contactForm').submit();
+	$('#contactForm').submit(function( event ) {
+	  event.preventDefault();
+	});
 
 	console.log("sent!");
 }
