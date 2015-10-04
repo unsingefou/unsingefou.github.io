@@ -29,7 +29,7 @@ function validateForm(){
 		toggleMark("message", false);
 
 	if(status){
-		sendEmail(name, email, message);
+		sendEmail();
 
 		var buttonText = document.getElementById("emailButtonText");
 		buttonText.innerHTML = "send another";
@@ -64,14 +64,8 @@ function changeDown(){
 			buttonText.innerHTML = "send";
 		});
 }
-function sendEmail(name, email, message){
-	//$('#contactForm').submit();
-
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST","//formspree.io/jonathan.levis@gmail.com",true);
-	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("nameBox=" + name + "&_replyto=" + email + "&messageBox=" + message);
-
+function sendEmail(){
+	$('#contactForm').submit();
 
 	console.log("sent!");
 }
