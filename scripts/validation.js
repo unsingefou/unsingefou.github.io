@@ -1,6 +1,6 @@
-function validateForm(){		
+function validateForm(){
 	var status = true;
-	
+
 	var nameField = document.forms["contactForm"]["nameBox"];
 	var name = nameField.value;
 	if (name == null || name == "" ){
@@ -9,7 +9,7 @@ function validateForm(){
 	}
 	else
 		toggleMark("name", false);
-		
+
 	var emailField = document.forms["contactForm"]["emailBox"];
 	var email = emailField.value;
 	if (email.indexOf("@") < 1){
@@ -18,7 +18,7 @@ function validateForm(){
 	}
 	else
 		toggleMark("email", false);
-	
+
 	var messageField = document.forms["contactForm"]["messageBox"];
 	var message = messageField.value;
 	if (message == null || message == "" ){
@@ -27,10 +27,10 @@ function validateForm(){
 	}
 	else
 		toggleMark("message", false);
-	
-	if(status){ 
-		sendEmail(name, email, message);
-		
+
+	if(status){
+		sendEmail();
+
 		var buttonText = document.getElementById("emailButtonText");
 		buttonText.innerHTML = "send another";
 		nameField.value = '';
@@ -45,31 +45,28 @@ function changeUp(){
 	$("#showHide").slideUp("slow", function(){
 		var form = document.getElementById("contactForm");
 		form.reset();
-		
+
 		var title = document.getElementById("contactTitle");
 		title.innerHTML = ("Your message is waiting in my inbox.");
-		
+
 		var emailButton = document.getElementById("emailButton");
 		emailButton.setAttribute("onClick", "changeDown()");
 	});
 }
 function changeDown(){
-	$("#showHide").slideDown("slow", function(){			
+	$("#showHide").slideDown("slow", function(){
 			var title = document.getElementById("contactTitle");
 			title.innerHTML = "Drop me a note.";
-			
+
 			var emailButton = document.getElementById("emailButton");
 			emailButton.setAttribute("onClick", "validateForm()");
 			var buttonText = document.getElementById("emailButtonText");
 			buttonText.innerHTML = "send";
 		});
 }
-function sendEmail(name, email, message){
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST","scripts/email.php?t=",true);
-	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("nameBox=" + name + "&emailBox=" + email + "&messageBox=" + message);
-	
+function sendEmail(){
+	$('#contactForm').submit();
+
 	console.log("sent!");
 }
 
