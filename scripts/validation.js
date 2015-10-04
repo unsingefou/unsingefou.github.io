@@ -65,9 +65,7 @@ function changeDown(){
 		});
 }
 function sendEmail(){
-	$('#contactForm').submit(function( event ) {
-	  event.preventDefault();
-	});
+	$('#contactForm').submit();
 
 	console.log("sent!");
 }
