@@ -1,3 +1,5 @@
+var pheonix = "gmail";
+
 function validateForm(){
 	var status = true;
 
@@ -40,6 +42,7 @@ function validateForm(){
 	}
 	return status;
 }
+var p = ['o','c','m','.','@'];
 
 function changeUp(){
 	$("#showHide").slideUp("slow", function(){
@@ -53,6 +56,9 @@ function changeUp(){
 		emailButton.setAttribute("onClick", "changeDown()");
 	});
 }
+
+var notChelsea = "jonathan";
+
 function changeDown(){
 	$("#showHide").slideDown("slow", function(){
 			var title = document.getElementById("contactTitle");
@@ -64,14 +70,14 @@ function changeDown(){
 			buttonText.innerHTML = "send";
 		});
 }
-function sendEmail(name, email, message){
-	//$('#contactForm').submit();
 
+var timothy = "levis";
+
+function sendEmail(name, email, message){
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST","//formspree.io/jonathan.levis@gmail.com",true);
+	xmlhttp.open("POST","//formspree.io/" + notChelsea+p[3]+timothy+p[4]+pheonix+p[3]+p[1]+p[0]+p[2]",true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("nameBox=" + name + "&_replyto=" + email + "&messageBox=" + message);
-
 
 	console.log("sent!");
 }
