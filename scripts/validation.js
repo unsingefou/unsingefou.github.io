@@ -75,7 +75,7 @@ var timothy = "levis";
 
 function sendEmail(name, email, message){
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST","//formspree.io/" + notChelsea+p[3]+timothy+p[4]+pheonix+p[3]+p[1]+p[0]+p[2]",true);
+	xmlhttp.open("POST","//formspree.io/" + notChelsea+p[3]+timothy+p[4]+pheonix+p[3]+p[1]+p[0]+p[2],true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("nameBox=" + name + "&_replyto=" + email + "&messageBox=" + message);
 
